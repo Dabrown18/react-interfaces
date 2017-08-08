@@ -13,7 +13,7 @@ export default class App extends Component {
           <p>with Bootstrap and SASS.</p>
           <p>
             <Button className="btn btn-primary" href="http://02geek.com/" target="_blank" />
-            <Button className="btn btn-danger" href="http://02geek.com/" />
+            <Button className="btn btn-danger" />
           </p>
         </div>
       </div>
