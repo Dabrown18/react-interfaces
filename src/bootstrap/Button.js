@@ -12,7 +12,7 @@ export default class Button extends Component {
 	render() {
 
 		const Tag = this.props.href ? 'a' : 'button';
-		const className = this.classify('btn', this.props.className);
+		const className = this.classify('btn', this.props.className) +(this.props.disabled ? ' disabled' : '');
 
 		return (
 			<Tag {...this.props} className={className}>Discover things.</Tag>
