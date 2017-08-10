@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import { classify } from './Utils';
 import Container from './Container';
 
-export default class Jumbotron extends Component {
-	render() {
-		const props = Object.assign({}, this.props);
+export default class Jumbotron extends React.Component{
+	render(){
+		const CSS_NAME = 'jumbotron';
+		const props = Object.assign({},this.props);
+					props.className = classify(CSS_NAME,props.className);
 		const containerFluid = props.containerFluid;
 		delete props.containerFluid;
 
-		return (
-			<div {...this.props} className={classify("jumbotron", this.props.className)}>
-				<Container fluid={containerFluid}>
-					{this.props.children}
-				</Container>
-			</div>
-		);
+		const body = props.className.includes(CSS_NAME+'-fluid') ?
+			<Container fluid={containerFluid}>
+				{this.props.children}
+			</Container> : this.props.children;
+		return <div {...props} >
+				{body}
+		</div>
 	}
 }
